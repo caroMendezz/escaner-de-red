@@ -19,11 +19,11 @@ Este proyecto es una aplicación de escritorio en Java orientada a objetos que p
 
 ## Estado actual del proyecto (Entrega parcial)
 
-- [ ] Estructura básica del proyecto creada
-- [ ] Ventana inicial con campos para IP de inicio y fin
-- [ ] Botón para iniciar escaneo (función aún en desarrollo)
-- [ ] Validación de direcciones IP
-- [ ] Implementación real del escaneo usando ping
+- [✅] Estructura básica del proyecto creada
+- [✅] Ventana inicial con campos para IP de inicio y fin
+- [✅] Botón para iniciar escaneo
+- [✅] Validación de direcciones IP
+- [✅] Implementación real del escaneo usando ping
 - [ ] Obtención de nombre de host con nslookup
 - [ ] Barra de progreso y tabla de resultados
 - [ ] Exportación de resultados
@@ -37,14 +37,3 @@ El programa está estructurado con clases separadas según su responsabilidad:
 -
 -
 
-
-## Próximos pasos
-
-- Ejecutar comandos reales (`ping`, `nslookup`) desde Java
-- Mostrar resultados en tabla con opciones de ordenamiento
-- Manejo completo de errores
-- Guardar resultados en archivo
-
-## Notas
-
-Este repositorio forma parte de la Entrega Nro 1 del trabajo práctico de la materia Redes.
