@@ -1,4 +1,4 @@
-Escáner de Red - TP Redes E.T. 36 - 5to 1ra | Profesor: Oscar A. Obregon | Alumna: Carolina Méndez
+Escáner de Red | TP Redes E.T. 36 | 5to 1ra T.T | Profesor: Oscar A. Obregon | Alumna: Carolina Méndez
 
 Este proyecto es una aplicación de escritorio en Java orientada a objetos que permite escanear un rango de direcciones IP dentro de una red local, identificar los dispositivos activos y mostrar información útil como el nombre del equipo y el tiempo de respuesta.
 
