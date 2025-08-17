@@ -17,23 +17,27 @@ Este proyecto es una aplicación de escritorio en Java orientada a objetos que p
 - Interfaz gráfica: Swing
 - Comandos del sistema: ping, nslookup
 
-## Estado actual del proyecto (Entrega parcial)
 
-- [✅] Estructura básica del proyecto creada
-- [✅] Ventana inicial con campos para IP de inicio y fin
-- [✅] Botón para iniciar escaneo
-- [✅] Validación de direcciones IP
-- [✅] Implementación real del escaneo usando ping
-- [ ] Obtención de nombre de host con nslookup
-- [ ] Barra de progreso y tabla de resultados
-- [ ] Exportación de resultados
+## Funcionalidades principales
+
+- Escaneo de un rango de direcciones IP.
+- Validación de direcciones IP ingresadas.
+- Identificación de dispositivos activos.
+- Obtención de nombre de host mediante nslookup.
+- Medición de tiempo de respuesta (ping).
+- Interfaz con barra de progreso y tabla de resultados.
+- Ordenar y filtrar resultados en la tabla.
+- Soporte para rangos amplios de direcciones.
+- Exportación de resultados a archivo de texto.
 
 ## Organización del proyecto
 
-El programa está estructurado con clases separadas según su responsabilidad:
+El programa está estructurado en paquetes según su responsabilidad:
 
-- En progreso...
--
--
--
+- interfaz: contiene la ventana principal y elementos gráficos.
+- logica: incluye la clase encargada del escaneo.
+- utilidades: validadores y funciones auxiliares.
+- archivo: manejo de exportación de resultados.
 
+## Estado del proyecto
+✅ Proyecto finalizado y funcional.
