@@ -25,7 +25,7 @@ public class VentanaPrincipal extends JFrame {
 	
     private JTextField txtIpInicio, txtIpFin, txtTimeout; // Campos de texto para ingresar las IP de inicio, fin del rango, y el timeout del ping.
     
-    private JButton btnEscanear, btnLimpiar, btnGuardar; // Botones de la interfaz: iniciar escaneo, limpiar pantalla y guardar resultados.
+    private JButton btnEscanear, btnLimpiar, btnGuardar, btnNetstat1, btnNetstat2, btnNetstat3; // Botones de la interfaz: iniciar escaneo, limpiar pantalla y guardar resultados.
     
     private JTable tablaResultados; // Tabla donde se muestran los resultados.
     
@@ -82,6 +82,11 @@ public class VentanaPrincipal extends JFrame {
         btnLimpiar = new JButton("Limpiar");
         btnGuardar = new JButton("Guardar resultados");
         
+        btnNetstat1 = new JButton("Conexiones Activas");
+        btnNetstat2 = new JButton("Puertos Escuchando");
+        btnNetstat3 = new JButton("Tabla de Rutas");
+
+
         
         // Agrega etiquetas y campos de texto al panel de entrada.
         panelEntrada.add(new JLabel("IP Inicio:"));
@@ -131,6 +136,13 @@ public class VentanaPrincipal extends JFrame {
         panelIzq.add(btnGuardar);             // Boton para guardar resultados
         panelIzq.add(new JLabel("Filtro:")); // Etiqueta para el filtro.
         panelIzq.add(filtroCombo);       	// ComboBox de filtro
+        
+        //-------------------------------
+        panelIzq.add(btnNetstat1);
+        panelIzq.add(btnNetstat2);
+        panelIzq.add(btnNetstat3);
+        //------------------------------
+        
 
         panelSur.add(panelIzq, BorderLayout.WEST); // Agrega los subpaneles al panel inferior.
         panelSur.add(barraProgreso, BorderLayout.CENTER); // Agrega la barra de progreso al centro del panelSur. 
@@ -142,8 +154,20 @@ public class VentanaPrincipal extends JFrame {
         btnEscanear.addActionListener(e -> escanearIPs()); 		  // Escanea las IPs ingresadas
         btnLimpiar.addActionListener(e -> limpiar());            // Limpia los campos y tabla
         btnGuardar.addActionListener(e -> guardarResultados()); // Guarda los resultados
+        
+        btnNetstat1.addActionListener(e -> mostrarNetstat(Escaner.verConexionesActivas()));
+        btnNetstat2.addActionListener(e -> mostrarNetstat(Escaner.verPuertosEscuchando()));
+        btnNetstat3.addActionListener(e -> mostrarNetstat(Escaner.verTablaRutas()));
     }
     
+  //------------------------------
+    private void mostrarNetstat(String salida) {
+        JTextArea textArea = new JTextArea(salida, 20, 60);
+        textArea.setEditable(false);
+        JScrollPane scroll = new JScrollPane(textArea);
+        JOptionPane.showMessageDialog(this, scroll, "Resultado Netstat", JOptionPane.INFORMATION_MESSAGE);
+    }
+  //------------------------------
     
     
 

@@ -102,5 +102,63 @@ public class Escaner {
             return "Desconocido"; // En caso de error tambien devuelve "Desconocido"
         }
     }
+    
+    //---------------------------------------------------
+    
+    public static String ejecutarComando(String comando) {
+        // StringBuilder para ir guardando toda la salida del comando linea por linea
+        StringBuilder salida = new StringBuilder();
+        try {
+            // Cree un ProcessBuilder para ejecutar el comando.
+            // En Windows se usa "cmd.exe /c comando" para que lo ejecute el interprete de comandos.
+            // Si estuvieras en Linux seria algo como: new ProcessBuilder("bash", "-c", comando);
+            ProcessBuilder pb = new ProcessBuilder("cmd.exe", "/c", comando);
+
+            // hacemos que la salida de error (stderr) se combine con la salida normal (stdout)
+            // Asi no tenemos que leer dos flujos por separado.
+            pb.redirectErrorStream(true);
+
+            // iniciamos el proceso (esto lanza el comando)
+            Process proc = pb.start();
+
+            // abrimos un lector para leer la salida del proceso (su stdout combinado con stderr)
+            try (java.io.BufferedReader reader = new java.io.BufferedReader(
+                    new java.io.InputStreamReader(proc.getInputStream()))) {
+                
+                String line;
+                // Leemos linea por linea todo lo que va imprimiendo el comando
+                while ((line = reader.readLine()) != null) {
+                    // Añadimos cada linea al StringBuilder con salto de linea
+                    salida.append(line).append("\n");
+                }
+            }
+
+            // Esperamos a que el proceso termine antes de continuar (opcional pero recomendable)
+            proc.waitFor();
+        } catch (Exception e) {
+            // Si ocurre algun error al ejecutar el comando, se guarda un mensaje en la salida
+            salida.append("Error ejecutando comando: ").append(e.getMessage());
+        }
+
+        // Devolvemos todo el texto que produjo el comando (o el error)
+        return salida.toString();
+    }
+    
+
+    // Tres funciones netstat:
+    public static String verConexionesActivas() {
+        // En Windows netstat -an muestra conexiones activas
+        return ejecutarComando("netstat -an");
+    }
+
+    public static String verPuertosEscuchando() {
+        // netstat -an | find "LISTEN" en Linux, en Windows -ano ya muestra LISTENING
+        return ejecutarComando("netstat -an");
+    }
+
+    public static String verTablaRutas() {
+        // netstat -r (tabla de enrutamiento)
+        return ejecutarComando("netstat -r");
+    }
 }
 
