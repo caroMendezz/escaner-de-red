@@ -15,7 +15,7 @@ Este proyecto es una aplicación de escritorio en Java orientada a objetos que p
 - Lenguaje: Java
 - Entorno de desarrollo: Eclipse
 - Interfaz gráfica: Swing
-- Comandos del sistema: ping, nslookup
+- Comandos del sistema: ping, nslookup, netstat
 
 
 ## Funcionalidades principales
@@ -29,6 +29,9 @@ Este proyecto es una aplicación de escritorio en Java orientada a objetos que p
 - Ordenar y filtrar resultados en la tabla.
 - Soporte para rangos amplios de direcciones.
 - Exportación de resultados a archivo de texto.
+- Visualización de conexiones activas y puertos en escucha, mostrando el protocolo, direcciones locales y remotas y estado de la conexión.
+Actualmente, algunas secciones muestran información similar, pero cada tabla está pensada para proporcionar detalles específicos sobre distintos aspectos de la red.
+La Tabla de rutas permite visualizar rutas de red configuradas, incluyendo destino, máscara y puerta de enlace.
 
 ## Organización del proyecto
 
